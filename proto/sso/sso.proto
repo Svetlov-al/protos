@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package auth;
+
+option go_package = "svetlov.sso.v1;ssov1";
+
+service Auth {
+  rpc Register(RegisterRequest) returns (RegisterResponse);
+  rpc Login(LoginRequest) returns (LoginResponse);
+  rpc IsAdmin(IsAdminRequest) returns (IsAdminResponse);
+}
+
+message RegisterRequest {
+  string email = 1; // Email of the user to register
+  string password = 2; // Password of the user to register
+}
+
+message RegisterResponse {
+  int64 user_id = 1; // ID of the user registered
+}
+
+message LoginRequest {
+  string email = 1; // Email of the user to login
+  string password = 2; // Password of the user to login
+  int32 app_id = 3; // App ID of the user to login
+}
+
+message LoginResponse {
+  string token = 1; // Token of the user logged in
+}
+
+message IsAdminRequest {
+  int64 user_id = 1; // ID of the user to check if is admin
+}
+
+message IsAdminResponse {
+  bool is_admin = 1; // Whether the user is admin
+}

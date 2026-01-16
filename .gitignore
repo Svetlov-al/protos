@@ -1,0 +1,12 @@
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+*.tmp
+*.log
+node_modules/
+dist/
+bin/
+*.exe
+*.out
